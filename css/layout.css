@@ -3,7 +3,6 @@
 }
 
 .container {
-  background-color: rgb(238, 238, 238);
   font-family: 'Open Sans', sans-serif;
   max-width: 575px;
   margin: 0 auto;
@@ -24,6 +23,10 @@
   color: white;
 }
 
+.gray-background{
+  background-color: rgb(238, 238, 238);
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -36,7 +39,6 @@
 
 @media screen and (min-width: 768px) {
   .container {
-    background-color: rgb(238, 238, 238);
     max-width: 900px;
   }
 
