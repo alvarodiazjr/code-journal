@@ -27,3 +27,13 @@ button{
   border-radius: 5px;
   width: inherit;
 }
+
+.gray-background{
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(238, 238, 238);
+}
+
+.purple-header{
+  color: white;
+  background-color: rgb(105, 37, 105);
+}
