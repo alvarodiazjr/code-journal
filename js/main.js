@@ -15,10 +15,10 @@ $form.addEventListener('submit', function journalEntry(event) {
     title: $form.elements.title.value,
     photoUrl: $form.elements.photo.value,
     notes: $form.elements.notes.value,
-    nextEntryId: data.nextEntryId
+    entryId: data.nextEntryId
   };
 
-  data.entries.push(nextEntry);
+  data.entries.unshift(nextEntry);
 
   data.nextEntryId++;
 
