@@ -3,9 +3,24 @@
 }
 
 .container {
+  font-family: 'Open Sans', sans-serif;
   max-width: 575px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+.header-container {
+  font-family: 'Open Sans', sans-serif;
+  max-width: 575px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  color: white;
+  background-color: rgb(105, 37, 105);
+}
+
+.purple-background {
+  background-color: rgb(105, 37, 105);
+  color: white;
 }
 
 .row {
@@ -21,6 +36,15 @@
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
+  }
+
+  .header-container {
+    max-width: 900px;
+  }
+
+  .purple-background {
+    background-color: rgb(105, 37, 105);
+    color: white;
   }
 
   .column-full,
