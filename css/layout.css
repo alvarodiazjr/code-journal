@@ -3,6 +3,7 @@
 }
 
 .container {
+  background-color: rgb(238, 238, 238);
   font-family: 'Open Sans', sans-serif;
   max-width: 575px;
   margin: 0 auto;
@@ -35,6 +36,7 @@
 
 @media screen and (min-width: 768px) {
   .container {
+    background-color: rgb(238, 238, 238);
     max-width: 900px;
   }
 
