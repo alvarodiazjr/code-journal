@@ -31,7 +31,7 @@ function journalEntry(event) {
   var renderedEntries = renderEntry(entryData);
   $entryList.prepend(renderedEntries);
 
-  viewEntries();
+  showEntriesView();
 
   $form.reset();
 }
@@ -72,26 +72,26 @@ function appendEntries(event){
   }
 }
 
-function createEntries(event){
+function showFormView(event){
   $entries.className = 'view-entries hidden',
   $entryForm.className = 'create-entry';
   data.view = 'entry-form'
 }
 
-function viewEntries(event){
+function showEntriesView(event){
   $entries.className = 'view-entries';
   $entryForm.className = 'create-entry hidden';
   data.view = 'entries';
 }
 
 if (data.view === 'entry-form') {
-  createEntries()
+  showFormView()
 } else {
-  viewEntries();
+  showEntriesView();
 }
 
 document.addEventListener('DOMContentLoaded', appendEntries);
 $form.addEventListener('submit', journalEntry);
 $photoUrl.addEventListener('input', photoUrl);
-$newButton.addEventListener('click', createEntries);
-$nav.addEventListener('click', viewEntries);
+$newButton.addEventListener('click', showFormView);
+$nav.addEventListener('click', showEntriesView);
