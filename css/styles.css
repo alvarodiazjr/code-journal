@@ -14,6 +14,7 @@ button{
 }
 
 .button{
+  padding-top: 20px;
   text-align: right;
 }
 
@@ -36,4 +37,49 @@ button{
 .purple-header{
   color: white;
   background-color: rgb(105, 37, 105);
+}
+
+.margin-top{
+  margin-top: 40px;
+}
+
+.indent{
+  padding-left: 0%;
+}
+
+.anchor{
+  text-decoration: none;
+  color: white;
+}
+
+nav{
+  margin-top: 10px;
+}
+
+.entries-tag{
+  border: none;
+}
+
+.gap{
+  gap: 30px;
+}
+
+.no-entries{
+  text-align: center;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.align-center{
+  align-items: center;
+}
+
+.justify-end{
+  justify-content: center;
+}
+
+.nowrap{
+  flex-wrap: nowrap;
 }

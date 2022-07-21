@@ -17,18 +17,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body class="gray-background">
-  <div data-view="entry-form">
+  <header class="purple-header">
+    <div class="container">
+      <div class="row gap">
+        <h1>Code Journal</h1>
+        <nav>
+          <a href="#" class="anchor nav-entries">
+            <h2 class="entries-tag">Entries</h2>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <main>
     <form>
-      <header class="purple-header">
-        <div class="container">
-          <div class="row">
-            <div class="column-full">
-              <h1>Code Journal</h1>
-            </div>
-          </div>
-        </div>
-      </header>
-      <main>
+      <div class="create-entry hidden" data-view="entry-form">
         <div class="container">
           <div class="row">
             <div class="column-full">
@@ -40,18 +43,19 @@
             <div class="column-full column-half">
               <div class="column-full">
                 <h2>Title</h2>
-                <input type="text" class="input-size title" required="required" name="title" >
+                <input type="text" class="input-size title" required="required" name="title">
               </div>
               <div class="column-full">
                 <h2>Photo Url</h2>
-                <input type="text" class="input-size photo-url" required="required" name="photo" >
+                <input type="text" class="input-size photo-url" required="required" name="photo">
               </div>
             </div>
           </div>
           <div class="row">
             <div class="column-full">
               <h2>Notes</h2>
-              <textarea name="notes" id="notes" cols="30" rows="10" class="input-size notes" required="required"></textarea>
+              <textarea name="notes" id="notes" cols="30" rows="10" class="input-size notes"
+                required="required"></textarea>
             </div>
           </div>
           <div class="row">
@@ -60,10 +64,27 @@
             </div>
           </div>
         </div>
-      </main>
-      <script src="js/data.js"></script>
-      <script src="js/main.js"></script>
+      </div>
+      <div class="view-entries" data-view="entries">
+        <div class="container">
+          <div class="row nowrap">
+            <div class="column-half">
+              <div class="row space-around"></div>
+                <h1>Entries</h1>
+              </div>
+            <div class="column-half button">
+              <div class="row justify-end align-center"></div>
+                <a href="#" class="new-button"><button>NEW</button></a>
+              </div>
+          </div>
+          <ul class="indent">
+            <p class="no-entries">No entries have been recorded</p>
+          </ul>
+        </div>
+      </div>
     </form>
-  </div>
+  </main>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
