@@ -15,7 +15,7 @@ function photoUrl(event) {
 function journalEntry(event) {
   event.preventDefault();
 
-  var nextEntry = {
+  var entryData = {
     title: $form.elements.title.value,
     photoUrl: $form.elements.photo.value,
     notes: $form.elements.notes.value,
@@ -24,11 +24,11 @@ function journalEntry(event) {
 
   data.nextEntryId++;
 
-  data.entries.unshift(nextEntry);
+  data.entries.unshift(entryData);
 
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
 
-  var renderedEntries = renderEntry(nextEntry);
+  var renderedEntries = renderEntry(entryData);
   $entryList.prepend(renderedEntries);
 
   viewEntries();
@@ -68,6 +68,7 @@ function renderEntry(entryData){
 function appendEntries(event){
   for(var i = 0; i < data.entries.length; i++){
     var renderedEntries = renderEntry(data.entries[i]);
+    $entryList.appendChild(renderedEntries);
   }
 }
 
@@ -81,6 +82,12 @@ function viewEntries(event){
   $entries.className = 'view-entries';
   $entryForm.className = 'create-entry hidden';
   data.view = 'entries';
+}
+
+if (data.view === 'entry-form') {
+  createEntries()
+} else {
+  viewEntries();
 }
 
 document.addEventListener('DOMContentLoaded', appendEntries);
