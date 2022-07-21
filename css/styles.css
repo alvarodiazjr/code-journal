@@ -14,6 +14,7 @@ button{
 }
 
 .button{
+  margin: auto;
   text-align: right;
 }
 
@@ -36,4 +37,16 @@ button{
 .purple-header{
   color: white;
   background-color: rgb(105, 37, 105);
+}
+
+.margin-top{
+  margin-top: 40px;
+}
+
+.entry-form{
+  display: none;
+}
+
+.anchor{
+  color: white;
 }
