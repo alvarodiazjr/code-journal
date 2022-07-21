@@ -13,10 +13,6 @@
   flex-wrap: wrap;
 }
 
-.half-row{
-  display: flex;
-}
-
 .column-full,
 .column-half {
   width: 100%;

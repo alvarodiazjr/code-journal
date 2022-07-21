@@ -43,10 +43,6 @@ button{
   margin-top: 40px;
 }
 
-.entry-form{
-  display: none;
-}
-
 .indent{
   padding-left: 0%;
 }
@@ -68,19 +64,22 @@ nav{
   gap: 30px;
 }
 
-.text-half-row{
-  display: flex;
-  flex-basis: 50%;
+.no-entries{
+  text-align: center;
+}
+
+.space-around {
   justify-content: space-around;
 }
 
-.button-half-row{
-  display: flex;
-  flex-basis: 50%;
+.align-center{
   align-items: center;
-  justify-content: end;
 }
 
-.no-entries{
-  text-align: center;
+.justify-end{
+  justify-content: center;
+}
+
+.nowrap{
+  flex-wrap: nowrap;
 }
