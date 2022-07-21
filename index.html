@@ -19,19 +19,19 @@
 <body class="gray-background">
   <header class="purple-header">
     <div class="container">
-      <div class="row">
-        <div class="column-full">
-          <h1>Code Journal</h1>
-          <nav>
-            <a href="#" class="anchor"><h2>Entries</h2></a>
-          </nav>
-        </div>
+      <div class="row gap">
+        <h1>Code Journal</h1>
+        <nav>
+          <a href="#" class="anchor nav-entries">
+            <h2 class="entries-tag">Entries</h2>
+          </a>
+        </nav>
       </div>
     </div>
   </header>
   <main>
     <form>
-      <div data-view="entry-form">
+      <div class="create-entry hidden" data-view="entry-form">
         <div class="container">
           <div class="row">
             <div class="column-full">
@@ -65,31 +65,18 @@
           </div>
         </div>
       </div>
-      <div data-view="entries">
+      <div class="view-entries" data-view="entries">
         <div class="container">
-          <div class="row">
-            <div class="column-full column-half">
+          <div class="half-row">
+            <div class="column-half column-full">
               <h1>Entries</h1>
             </div>
-            <div class="column-full column-half button">
-              <button>NEW</button>
+            <div class="column-half column-full button">
+              <a href="#" class="new-button"><button>NEW</button></a>
             </div>
           </div>
-          <ul>
-            <!-- <div class="row">
-              <div class="column-full column-half">
-                <img src="images/placeholder-image-square.jpg" alt="placeholder">
-              </div>
-              <div class="column-full column-half">
-                <h2>Name</h2>
-                <p>
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum
-                  iure libero fuga blanditiis consectetur reprehenderit quae, dicta
-                  nostrum consequatur earum cum eos aspernatur veniam aperiam rem
-                  doloribus ex, nemo tempora.
-                </p>
-              </div>
-            </div> -->
+          <ul class="indent">
+            <p class="no-entries">No entries have been recorded</p>
           </ul>
         </div>
       </div>

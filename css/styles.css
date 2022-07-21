@@ -14,7 +14,7 @@ button{
 }
 
 .button{
-  margin: auto;
+  padding-top: 20px;
   text-align: right;
 }
 
@@ -47,6 +47,41 @@ button{
   display: none;
 }
 
+.indent{
+  padding-left: 0%;
+}
+
 .anchor{
+  margin-top: 10px;
+  text-decoration: none;
   color: white;
+}
+
+nav{
+  margin-top: 10px;
+}
+
+.entries-tag{
+  border: none;
+}
+
+.gap{
+  gap: 30px;
+}
+
+.text-half-row{
+  display: flex;
+  flex-basis: 50%;
+  justify-content: space-around;
+}
+
+.button-half-row{
+  display: flex;
+  flex-basis: 50%;
+  align-items: center;
+  justify-content: end;
+}
+
+.no-entries{
+  text-align: center;
 }
