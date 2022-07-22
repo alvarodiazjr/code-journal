@@ -77,9 +77,14 @@ nav{
 }
 
 .justify-end{
-  justify-content: center;
+  justify-content: end;
 }
 
 .nowrap{
   flex-wrap: nowrap;
+}
+
+.fa-solid{
+  margin-top: 20px;
+  font-size: x-large
 }

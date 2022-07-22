@@ -52,13 +52,35 @@ function renderEntry(entryData){
   textDiv.setAttribute('class', 'column-full column-half');
   row.appendChild(textDiv);
 
+  var noWrapRow = document.createElement('div');
+  noWrapRow.setAttribute('class', 'row nowrap');
+  textDiv.appendChild(noWrapRow);
+
+  var leftColumn = document.createElement('div');
+  leftColumn.setAttribute('class', 'column-half');
+  noWrapRow.appendChild(leftColumn);
+
   var h2 = document.createElement('h2');
   h2.textContent = entryData.title;
-  textDiv.appendChild(h2);
+  leftColumn.appendChild(h2);
 
   var p = document.createElement('p');
   p.textContent = entryData.notes;
-  textDiv.appendChild(p);
+  leftColumn.appendChild(p);
+
+  var rightColumn = document.createElement('div');
+  rightColumn.setAttribute('class', 'column-half');
+  noWrapRow.appendChild(rightColumn);
+
+  var iconRow = document.createElement('div');
+  iconRow.setAttribute('class', 'row justify-end align-center');
+  rightColumn.appendChild(iconRow);
+
+  var icon = document.createElement('i');
+  icon.setAttribute('class', 'fa-solid fa-pen nav');
+  iconRow.appendChild(icon);
+
+  row.setAttribute('data-entry-id', entryData.entryId);
 
   $noEntriesText.remove();
 
@@ -90,6 +112,18 @@ if (data.view === 'entry-form') {
   showEntriesView();
 }
 
+function editEntry(event){
+  console.log(event.target.tagName);
+  if(event.target.tagName !== 'I'){
+    return;
+  }
+  showFormView();
+  entryNum = event.currentTarget;
+  data.editing = entryNum;
+  console.log(data.editing);
+}
+
+$entryList.addEventListener('click', editEntry);
 document.addEventListener('DOMContentLoaded', appendEntries);
 $form.addEventListener('submit', journalEntry);
 $photoUrl.addEventListener('input', photoUrl);
