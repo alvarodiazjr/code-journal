@@ -88,3 +88,7 @@ nav{
   margin-top: 20px;
   font-size: x-large
 }
+
+.list-style{
+  list-style-type: none;
+}

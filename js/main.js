@@ -1,12 +1,14 @@
 var $photoUrl = document.querySelector('.photo-url');
 var $img = document.querySelector('img');
 var $form = document.querySelector('form');
-var $entryList = document.querySelector('ul');
+var $entryList = document.querySelector('.entry-list');
 var $entryForm = document.querySelector('.create-entry');
 var $entries = document.querySelector('.view-entries');
 var $nav = document.querySelector('.nav-entries');
 var $newButton = document.querySelector('.new-button');
 var $noEntriesText = document.querySelector('.no-entries');
+// var $title = document.querySelector('.title');
+// var $notes = document.querySelector('.notes');
 
 function photoUrl(event) {
   $img.setAttribute('src', $photoUrl.value);
@@ -37,8 +39,12 @@ function journalEntry(event) {
 }
 
 function renderEntry(entryData){
+  var list = document.createElement('li');
+  list.setAttribute('class', 'list-style');
+
   var row = document.createElement('div');
   row.className = 'row'
+  list.appendChild(row);
 
   var imgDiv = document.createElement('div');
   imgDiv.className = 'column-full column-half';
@@ -80,11 +86,11 @@ function renderEntry(entryData){
   icon.setAttribute('class', 'fa-solid fa-pen nav');
   iconRow.appendChild(icon);
 
-  row.setAttribute('data-entry-id', entryData.entryId);
+  list.setAttribute('data-entry-id', entryData.entryId);
 
   $noEntriesText.remove();
 
-  return row;
+  return list;
 }
 
 function appendEntries(event){
@@ -118,9 +124,9 @@ function editEntry(event){
     return;
   }
   showFormView();
-  entryNum = event.currentTarget;
+  var entryNum = event.target.closest('li');
   data.editing = entryNum;
-  console.log(data.editing);
+  console.log(entryNum);
 }
 
 $entryList.addEventListener('click', editEntry);
