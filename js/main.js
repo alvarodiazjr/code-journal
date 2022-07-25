@@ -10,6 +10,8 @@ var $noEntriesText = document.querySelector('.no-entries');
 var $entryTitle = document.querySelector('.title');
 var $entryNotes = document.querySelector('.notes');
 var $entriesH1 = document.querySelector('.entries-h1');
+var $deleteButton = document.querySelector('.delete-entry');
+var $overlay = document.querySelector('.overlay');
 
 function photoUrl(event) {
   $img.setAttribute('src', $photoUrl.value);
@@ -118,6 +120,7 @@ function showFormView(event){
   $entries.className = 'view-entries hidden';
   $entryForm.className = 'create-entry';
   data.view = 'entry-form'
+  $deleteButton.className = 'delete-entry hidden';
 }
 
 function showEntriesView(event){
@@ -137,6 +140,7 @@ function editEntryClick(event){
     return;
   }
   showFormView();
+  // $deleteButton.className('delete-entry');
   var entryNum = event.target.closest('li');
   data.editing = entryNum;
 
@@ -150,6 +154,8 @@ function editEntryClick(event){
   $photoUrl.value = entryData.photoUrl;
   $img.setAttribute('src', entryData.photoUrl);
   $entryNotes.value = entryData.notes;
+
+  $deleteButton.className = 'delete-entry';
 }
 
 function getEntryObject(list){
@@ -163,6 +169,12 @@ function getEntryObject(list){
   }
 }
 
+function clickDelete(event){
+  console.log(event.target);
+  $overlay.className = 'overlay';
+}
+
+$deleteButton.addEventListener('click', clickDelete);
 $entryList.addEventListener('click', editEntryClick);
 document.addEventListener('DOMContentLoaded', appendEntries);
 $form.addEventListener('submit', saveEntries);

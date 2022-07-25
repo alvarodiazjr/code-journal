@@ -76,6 +76,10 @@ nav{
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-end{
   justify-content: end;
 }
@@ -92,4 +96,43 @@ nav{
 
 .list-style{
   list-style-type: none;
+}
+
+.overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.modal-container {
+  text-align: center;
+  padding: 10px 20px;
+  position: fixed;
+  background-color: white;
+  width: 400px;
+  height: 150px;
+  top: 10rem;
+  bottom: 0;
+  left: 8rem;
+  right: 10rem;
+}
+
+.delete-container {
+  min-width: 350px;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  top: 15rem;
+  bottom: 0;
+  left: 5rem;
+  right: 5rem;
+}
+
+.delete-entry {
+  padding-top: 20px;
+  color: red;
+  text-decoration-color: red;
 }
