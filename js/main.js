@@ -12,6 +12,7 @@ var $entryNotes = document.querySelector('.notes');
 var $entriesH1 = document.querySelector('.entries-h1');
 var $deleteButton = document.querySelector('.delete-entry');
 var $overlay = document.querySelector('.overlay');
+var $cancelButton = document.querySelector('.cancel-button');
 
 function photoUrl(event) {
   $img.setAttribute('src', $photoUrl.value);
@@ -174,6 +175,12 @@ function clickDelete(event){
   $overlay.className = 'overlay';
 }
 
+function clickCancel(event){
+  console.log(event.target);
+  $overlay.className = 'overlay hidden';
+}
+
+$cancelButton.addEventListener('click', clickCancel);
 $deleteButton.addEventListener('click', clickDelete);
 $entryList.addEventListener('click', editEntryClick);
 document.addEventListener('DOMContentLoaded', appendEntries);
