@@ -77,9 +77,19 @@ nav{
 }
 
 .justify-end{
-  justify-content: center;
+  justify-content: end;
 }
 
 .nowrap{
   flex-wrap: nowrap;
+}
+
+.fa-solid{
+  color: rgb(105, 37, 105);
+  margin-top: 20px;
+  font-size: x-large
+}
+
+.list-style{
+  list-style-type: none;
 }
