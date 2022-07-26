@@ -123,13 +123,13 @@ function showFormView(event){
   $entries.className = 'view-entries hidden';
   $entryForm.className = 'create-entry';
   data.view = 'entry-form'
-  $deleteEntryButton.className = 'delete-entry hidden';
 }
 
 function showEntriesView(event){
   $entries.className = 'view-entries';
   $entryForm.className = 'create-entry hidden';
   data.view = 'entries';
+  $deleteEntryButton.className = 'delete-entry hidden';
 }
 
 if (data.view === 'entry-form') {
@@ -143,7 +143,6 @@ function editEntryClick(event){
     return;
   }
   showFormView();
-  // $deleteButton.className('delete-entry');
   var entryNum = event.target.closest('li');
   data.editing = entryNum;
 
@@ -173,7 +172,6 @@ function getEntryObject(list){
 }
 
 function clickDelete(event){
-  console.log(event.target);
   $overlay.className = 'overlay';
 }
 

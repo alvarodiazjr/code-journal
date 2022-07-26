@@ -136,3 +136,12 @@ nav{
   color: red;
   text-decoration-color: red;
 }
+
+.cancel-button {
+  color: white;
+  background-color: lightgray;
+}
+
+.confirm-delete {
+  background-color: rgb(250, 104, 104);
+}
