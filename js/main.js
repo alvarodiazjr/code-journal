@@ -10,9 +10,10 @@ var $noEntriesText = document.querySelector('.no-entries');
 var $entryTitle = document.querySelector('.title');
 var $entryNotes = document.querySelector('.notes');
 var $entriesH1 = document.querySelector('.entries-h1');
-var $deleteButton = document.querySelector('.delete-entry');
+var $deleteEntryButton = document.querySelector('.delete-entry');
 var $overlay = document.querySelector('.overlay');
 var $cancelButton = document.querySelector('.cancel-button');
+var $confirmDeleteButton = document.querySelector('.confirm-delete');
 
 function photoUrl(event) {
   $img.setAttribute('src', $photoUrl.value);
@@ -54,6 +55,7 @@ function saveEntries(event) {
 function renderEntry(entryData){
   var list = document.createElement('li');
   list.setAttribute('class', 'list-style');
+  list.classList.add('entries');
 
   var row = document.createElement('div');
   row.className = 'row'
@@ -121,7 +123,7 @@ function showFormView(event){
   $entries.className = 'view-entries hidden';
   $entryForm.className = 'create-entry';
   data.view = 'entry-form'
-  $deleteButton.className = 'delete-entry hidden';
+  $deleteEntryButton.className = 'delete-entry hidden';
 }
 
 function showEntriesView(event){
@@ -156,7 +158,7 @@ function editEntryClick(event){
   $img.setAttribute('src', entryData.photoUrl);
   $entryNotes.value = entryData.notes;
 
-  $deleteButton.className = 'delete-entry';
+  $deleteEntryButton.className = 'delete-entry';
 }
 
 function getEntryObject(list){
@@ -176,12 +178,37 @@ function clickDelete(event){
 }
 
 function clickCancel(event){
-  console.log(event.target);
   $overlay.className = 'overlay hidden';
 }
 
+function confirmDelete(event){
+  var entryListElement = data.editing;
+
+  var entryId = entryListElement.getAttribute('data-entry-id');
+
+  var entriesList = document.querySelectorAll('.entries');
+
+  for(var i = 0; i < entriesList.length; i++){
+    if(entriesList[i].getAttribute('data-entry-id') === entryId){
+      entriesList[i].remove();
+    }
+  }
+
+  for(var x = 0; x < data.entries.length; x++){
+    if(entryId === data.entries[x].entryId.toString()){
+      data.entries.splice(x, 1);
+    }
+  }
+
+  clickCancel();
+
+  showEntriesView();
+}
+
+
+$confirmDeleteButton.addEventListener('click', confirmDelete);
 $cancelButton.addEventListener('click', clickCancel);
-$deleteButton.addEventListener('click', clickDelete);
+$deleteEntryButton.addEventListener('click', clickDelete);
 $entryList.addEventListener('click', editEntryClick);
 document.addEventListener('DOMContentLoaded', appendEntries);
 $form.addEventListener('submit', saveEntries);
