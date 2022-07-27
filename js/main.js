@@ -10,6 +10,10 @@ var $noEntriesText = document.querySelector('.no-entries');
 var $entryTitle = document.querySelector('.title');
 var $entryNotes = document.querySelector('.notes');
 var $entriesH1 = document.querySelector('.entries-h1');
+var $deleteEntryButton = document.querySelector('.delete-entry');
+var $overlay = document.querySelector('.overlay');
+var $cancelButton = document.querySelector('.cancel-button');
+var $confirmDeleteButton = document.querySelector('.confirm-delete');
 
 function photoUrl(event) {
   $img.setAttribute('src', $photoUrl.value);
@@ -51,6 +55,7 @@ function saveEntries(event) {
 function renderEntry(entryData){
   var list = document.createElement('li');
   list.setAttribute('class', 'list-style');
+  list.classList.add('entries');
 
   var row = document.createElement('div');
   row.className = 'row'
@@ -124,6 +129,7 @@ function showEntriesView(event){
   $entries.className = 'view-entries';
   $entryForm.className = 'create-entry hidden';
   data.view = 'entries';
+  $deleteEntryButton.className = 'delete-entry hidden';
 }
 
 if (data.view === 'entry-form') {
@@ -150,6 +156,8 @@ function editEntryClick(event){
   $photoUrl.value = entryData.photoUrl;
   $img.setAttribute('src', entryData.photoUrl);
   $entryNotes.value = entryData.notes;
+
+  $deleteEntryButton.className = 'delete-entry';
 }
 
 function getEntryObject(list){
@@ -163,6 +171,42 @@ function getEntryObject(list){
   }
 }
 
+function clickDelete(event){
+  $overlay.className = 'overlay';
+}
+
+function clickCancel(event){
+  $overlay.className = 'overlay hidden';
+}
+
+function confirmDelete(event){
+  var entryListElement = data.editing;
+
+  var entryId = entryListElement.getAttribute('data-entry-id');
+
+  var entriesList = document.querySelectorAll('.entries');
+
+  for(var i = 0; i < entriesList.length; i++){
+    if(entriesList[i].getAttribute('data-entry-id') === entryId){
+      entriesList[i].remove();
+    }
+  }
+
+  for(var x = 0; x < data.entries.length; x++){
+    if(entryId === data.entries[x].entryId.toString()){
+      data.entries.splice(x, 1);
+    }
+  }
+
+  clickCancel();
+
+  showEntriesView();
+}
+
+
+$confirmDeleteButton.addEventListener('click', confirmDelete);
+$cancelButton.addEventListener('click', clickCancel);
+$deleteEntryButton.addEventListener('click', clickDelete);
 $entryList.addEventListener('click', editEntryClick);
 document.addEventListener('DOMContentLoaded', appendEntries);
 $form.addEventListener('submit', saveEntries);
